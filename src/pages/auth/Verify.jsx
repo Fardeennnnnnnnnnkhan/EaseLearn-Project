@@ -29,7 +29,7 @@ function Verify() {
         </div>
         
         {/* Left Column (Form) */}
-        <div className="w-full md:w-1/2 p-8">
+        <div className="w-full bg-[#0d0d0d] md:w-1/2 p-8">
           <h2 className="text-4xl font-bold text-teal-400 mb-6">OTP Verification</h2>
           <p className="text-lg mb-4">Please enter the OTP sent to your email</p>
           <form onSubmit={submitHandler}>
