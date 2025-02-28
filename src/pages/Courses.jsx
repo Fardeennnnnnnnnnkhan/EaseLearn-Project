@@ -22,14 +22,14 @@ function Courses() {
         : courses.filter(course => course.category === selectedCategory);
 
     return (
-      <div className="min-h-screen bg-gradient-to-r from-purple-300 to-pink-500 py-28 transition duration-300">
-      <div className="container mx-auto px-5">
+      <div className="min-h-screen bg-gradient-to-t from-teal-900/40 to-black bg-black py-28 transition duration-300">
+      <div className="container  mx-auto px-5">
         {/* Hero Section */}
         <div className="text-center mb-10">
-          <h1 className="text-5xl font-bold text-pink-700 mb-2 transition duration-300 hover:underline">
+          <h1 className="text-5xl font-bold text-teal-700 mb-2 transition duration-300 hover:underline">
             Explore Our Courses
           </h1>
-          <p className="text-lg text-gray-800 mb-4 max-w-lg mx-auto">
+          <p className="text-lg text-gray-100 mb-4 max-w-lg mx-auto">
             Discover a variety of courses designed to help you achieve your learning goals.
           </p>
         </div>
@@ -44,11 +44,11 @@ function Courses() {
               (category) => (
                 <button
                   key={category}
-                  className={`px-6 py-3 rounded-lg border border-pink-500 transition duration-300 text-lg font-medium
+                  className={`px-6 py-3 rounded-lg border border-teal-400 transition duration-300 text-lg font-medium
                     ${
                       selectedCategory === category
-                        ? 'bg-pink-500 text-white shadow-lg'
-                        : 'bg-white text-pink-500 hover:bg-pink-100 hover:scale-105'
+                        ? 'bg-teal-500 text-white shadow-lg'
+                        : 'bg-white text-teal-500 hover:bg-pink-100 hover:scale-105'
                     }`}
                   onClick={() => handleCategorySelect(category)}
                 >

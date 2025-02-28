@@ -3,8 +3,8 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-black text-white ">
+      <div className="container bg-gradient-to-t py-12 from-teal-900/40 mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           {/* About Section */}
           <div className="w-full sm:w-1/2 md:w-1/4 mb-8 sm:mb-0">

@@ -46,14 +46,14 @@ const Instructors = () => {
   }, [instructors.length]);
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-300 to-pink-500 px-6 py-12">
+<section className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-t from-teal-900/40 to-black px-6 py-12">
     {/* Heading */}
     <h2 className="text-5xl font-extrabold text-white mb-12 drop-shadow-lg">
       Our Instructors
     </h2>
 
     {/* Instructor Card */}
-    <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-8 bg-white p-8 rounded-2xl shadow-2xl">
+    <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-8 bg-[#171717] p-8 rounded-2xl shadow-2xl border border-gray-800">
       {/* Instructor Image */}
       <motion.div
         className="w-full lg:w-1/2 flex justify-center"
@@ -64,37 +64,38 @@ const Instructors = () => {
         <img
           src={instructors[currentIndex].image}
           alt={instructors[currentIndex].name}
-          className="w-full max-h-96 object-cover rounded-xl shadow-lg border-4 border-pink-500"
+          className="w-full max-h-96 object-cover rounded-xl shadow-lg border-4 border-teal-950"
         />
       </motion.div>
 
       {/* Instructor Details */}
       <motion.div
-        className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-5 p-8 bg-gray-50 rounded-xl shadow-lg border-l-4 border-pink-400"
+        className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-5 p-8 bg-[#171717] rounded-xl shadow-lg border-l-4 border-gray-600"
         initial={{ x: "100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h3 className="text-4xl font-bold text-gray-900">
+        <h3 className="text-4xl font-bold text-white">
           {instructors[currentIndex].name}
         </h3>
-        <p className="text-lg text-pink-600 font-medium">
+        <p className="text-lg text-blue-400 font-medium">
           {instructors[currentIndex].expertise}
         </p>
-        <p className="text-gray-700 leading-relaxed">{instructors[currentIndex].description}</p>
-        <p className="text-gray-800">
-          <span className="font-semibold text-pink-700">Qualifications:</span> {instructors[currentIndex].qualifications}
+        <p className="text-gray-300 leading-relaxed">{instructors[currentIndex].description}</p>
+        <p className="text-gray-300">
+          <span className="font-semibold text-blue-400">Qualifications:</span> {instructors[currentIndex].qualifications}
         </p>
-        <p className="text-gray-800">
-          <span className="font-semibold text-pink-700">Experience:</span> {instructors[currentIndex].experience} years
+        <p className="text-gray-300">
+          <span className="font-semibold text-blue-400">Experience:</span> {instructors[currentIndex].experience} years
         </p>
-        <p className="text-gray-800">
-          <span className="font-semibold text-pink-700">Fields:</span> {instructors[currentIndex].fields.join(", ")}
+        <p className="text-gray-300">
+          <span className="font-semibold text-blue-400">Fields:</span> {instructors[currentIndex].fields.join(", ")}
         </p>
-        <p className="text-gray-600 italic">{instructors[currentIndex].bio}</p>
+        <p className="text-gray-400 italic">{instructors[currentIndex].bio}</p>
       </motion.div>
     </div>
   </section>
+
   );
 };
 

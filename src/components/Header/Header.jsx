@@ -156,7 +156,7 @@ function Header({ isAuth }) {
         </div>
         <div className="left hidden sm:block text-lg tracking-tighter">
           <div className="links flex gap-6">
-            <NavLink to="/" className="text-xl font-light hover:underline hover:text-blue-400">Home</NavLink>
+            <NavLink to="/" className="text-xl font-light hover:underline hover:text-blue-200">Home</NavLink>
             <NavLink to="/courses" className="text-xl font-light hover:underline hover:text-blue-200">Courses</NavLink>
             <NavLink to="/about" className="text-xl font-light hover:underline hover:text-blue-200">About</NavLink>
             {isAuth ? 

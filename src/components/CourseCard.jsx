@@ -47,82 +47,72 @@ function CourseCard({ course }) {
   };
 
   return (
-<motion.div
-  whileHover={{ scale: 1.02, translateY: -5 }}
-  whileTap={{ scale: 0.98 }}
-  className="bg-transparent rounded-lg shadow-md p-6   hover:shadow-xl transform transition-all duration-300 relative"
->
-  {/* Top Badge */}
-  {course.popular && (
-    <div className="absolute top-3 left-3 bg-[#AA336A] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
-      Popular
+    <motion.div
+    whileHover={{ scale: 1.02, translateY: -5 }}
+    whileTap={{ scale: 0.98 }}
+    className="bg-[#171717] rounded-xl shadow-lg p-4 text-white relative max-w-xs"
+  >
+    {/* Course Image */}
+    <div className="relative w-full h-48">
+      <img
+        className="w-full h-full object-cover rounded-lg"
+        src={`${server}/${course.image}`}
+        alt={course.title}
+      />
+      <span className="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-md">
+        JOB READY
+      </span>
     </div>
-  )}
 
-  {/* Course Image */}
-  <img
-    className="w-full h-48 object-cover rounded-md mb-4"
-    src={`${server}/${course.image}`}
-    alt={course.title}
-  />
+    {/* Course Details */}
+    <h3 className="text-lg font-bold mt-3">{course.title}</h3>
 
-  {/* Course Details */}
-  <div>
-    <h3 className="font-bold text-lg mb-2 text-[#AA336A] tracking-tight truncate">
-      {course.title}
-    </h3>
-    <p className="text-sm text-white-800 mb-2">
-      <span className="font-medium">Instructor:</span> {course.createdBy}
-    </p>
-    <p className="text-sm text-white-600 mb-2">
-      <span className="font-medium">Duration:</span> {course.duration} weeks
-    </p>
-    <p className="text-lg font-semibold mb-4 text-pink-800">
-      {course.price === 0 ? (
-        <span className="text-green-600">Free</span>
-      ) : (
-        <>
-        <p className="text-sm text-white-600 mb-2">
-      <span className="font-medium  text-white ">Price:</span> <span className='line-through'> {course.price}</span>
-    </p>
-         <span className="text-green-400">Free</span>
-        </>
+    {/* Badges */}
+    <div className="flex space-x-2 mt-2">
+      <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-md">LIVE BATCH</span>
+      <span className="bg-gray-700 text-white text-xs font-bold px-2 py-1 rounded-md">HINDI</span>
+    </div>
 
-      )}
-    </p>
+    {/* Pricing */}
+    <div className="mt-3">
+      <p className="text-green-400 text-sm font-semibold">Limited Time Discount</p>
+      <div className="flex items-center space-x-2">
+        <span className="text-xl font-bold">₹ {course.price}</span>
+        <span className="line-through text-gray-400">₹ {course.originalPrice}</span>
+        <span className="bg-white text-black text-xs font-bold px-2 py-1 rounded-md">{course.discount}% OFF</span>
+      </div>
+    </div>
 
     {/* Buttons */}
     {isAuth ? (
-      <>
-        {user && user.role !== "admin" ? (
-          user.subscription.includes(course._id) ? (
-            <button
-              onClick={() => navigate(`/course/study/${course._id}`)}
-              className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
-            >
-              Study Now
-            </button>
-          ) : (
-            <button
-              onClick={() => navigate(`/course/${course._id}`)}
-              className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
-            >
-              Buy Now
-            </button>
-          )
-        ) : (
+      user && user.role !== "admin" ? (
+        user.subscription.includes(course._id) ? (
           <button
             onClick={() => navigate(`/course/study/${course._id}`)}
-            className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
+            className="w-full mt-3 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
           >
             Study Now
           </button>
-        )}
-      </>
+        ) : (
+          <button
+            onClick={() => navigate(`/course/${course._id}`)}
+            className="w-full mt-3 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
+          >
+            Buy Now
+          </button>
+        )
+      ) : (
+        <button
+          onClick={() => navigate(`/course/study/${course._id}`)}
+          className="w-full mt-3 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
+        >
+          Study Now
+        </button>
+      )
     ) : (
       <button
         onClick={() => navigate("/login")}
-        className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
+        className="w-full mt-3 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
       >
         Buy Now
       </button>
@@ -132,14 +122,12 @@ function CourseCard({ course }) {
     {user && user.role === "admin" && (
       <button
         onClick={() => deleteHandler(course._id)}
-        className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-all"
+        className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg"
       >
         Delete
       </button>
     )}
-  </div>
-</motion.div>
-
+  </motion.div>
 
 
   );

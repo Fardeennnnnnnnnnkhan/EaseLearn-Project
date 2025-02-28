@@ -24,9 +24,9 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full p-8 ">
+    <section className="w-full p-8 bg-gradient-to-b from-teal-900/40 to-black">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-black">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold text-white">Frequently Asked Questions</h2>
       </div>
 
       <div className="w-full md:w-2/3 mx-auto">

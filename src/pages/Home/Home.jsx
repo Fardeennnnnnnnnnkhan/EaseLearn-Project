@@ -61,17 +61,17 @@ function Home() {
       </div>
 
       {/* Available Courses Section */}
-      <div className="w-full bg-inherit py-12">
+      <div className="w-full bg-black  ">
         <AvailableCourses />
       </div>
 
       {/* Instructors Section */}
-      <div className="w-full bg-inherit py-12">
+      <div className="w-full bg-black ">
         <Instructors />
       </div>
 
       {/* FAQ Section */}
-      <div className="w-full bg-inherit py-12">
+      <div className="w-full bg-black ">
         <FAQ />
       </div>
     </div>
