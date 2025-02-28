@@ -25,7 +25,6 @@ function AppRoutes() {
 
   // Define the paths where the Header and Footer should not be displayed
   const noHeaderFooterPaths = ['/login', '/register', '/verify'];
-
   // Check if the current path is in the array
   const shouldHideHeaderFooter = noHeaderFooterPaths.includes(location.pathname);
 
@@ -33,7 +32,7 @@ function AppRoutes() {
     <>
       {!shouldHideHeaderFooter && <Header isAuth={isAuth} />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About />} />
         <Route path="/account" element={isAuth ? <Account user={user} /> : <Login />} />
         <Route path="/login" element={isAuth ? <Home /> : <Login />} />

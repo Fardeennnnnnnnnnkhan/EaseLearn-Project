@@ -157,7 +157,7 @@ function Testimonial() {
   };
 
   return (
-  <section className="testimonial w-full py-16 bg-gray-50 flex flex-col items-center">
+  <section className="testimonial w-full py-16 flex flex-col items-center">
   <h1 className="text-4xl md:text-5xl font-bold mb-12 text-[#4660EC] tracking-wide">
     What Our Students Say
   </h1>

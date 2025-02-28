@@ -24,7 +24,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full p-8 bg-gray-100">
+    <section className="w-full p-8 ">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-black">Frequently Asked Questions</h2>
       </div>
@@ -33,7 +33,7 @@ const FAQ = () => {
         {faqData.map((faq, index) => (
           <motion.div
             key={index}
-            className="mb-4 bg-white shadow-lg rounded-lg p-4 cursor-pointer"
+            className="mb-4 bg-white text-black shadow-lg rounded-lg p-4 cursor-pointer"
             onClick={() => toggleFAQ(index)}
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 150 }}

@@ -46,38 +46,55 @@ const Instructors = () => {
   }, [instructors.length]);
 
   return (
-    <section className="w-full h-screen bg-white flex flex-col justify-center items-center">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">Our Instructors</h2>
-      <div className="w-full max-w-screen-lg flex">
-        <motion.div
-          className="w-1/2 h-full flex justify-center items-center"
-          initial={{ x: '-100%' }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <img
-            src={instructors[currentIndex].image}
-            alt={instructors[currentIndex].name}
-            className="w-full h-full object-cover rounded-lg shadow-lg"
-          />
-        </motion.div>
+    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-300 to-pink-500 px-6 py-12">
+    {/* Heading */}
+    <h2 className="text-5xl font-extrabold text-white mb-12 drop-shadow-lg">
+      Our Instructors
+    </h2>
 
-        <motion.div
-          className="w-1/2 h-full flex flex-col justify-center items-start p-8 bg-gray-100 rounded-lg shadow-lg"
-          initial={{ x: '100%' }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h3 className="text-2xl font-semibold text-gray-800">{instructors[currentIndex].name}</h3>
-          <p className="text-gray-500 mt-2">{instructors[currentIndex].expertise}</p>
-          <p className="text-gray-600 mt-2">{instructors[currentIndex].description}</p>
-          <p className="text-gray-600 mt-1">Qualifications: {instructors[currentIndex].qualifications}</p>
-          <p className="text-gray-600 mt-1">Experience: {instructors[currentIndex].experience}</p>
-          <p className="text-gray-600 mt-1">Fields: {instructors[currentIndex].fields.join(', ')}</p>
-          <p className="text-gray-600 mt-2">{instructors[currentIndex].bio}</p>
-        </motion.div>
-      </div>
-    </section>
+    {/* Instructor Card */}
+    <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-8 bg-white p-8 rounded-2xl shadow-2xl">
+      {/* Instructor Image */}
+      <motion.div
+        className="w-full lg:w-1/2 flex justify-center"
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <img
+          src={instructors[currentIndex].image}
+          alt={instructors[currentIndex].name}
+          className="w-full max-h-96 object-cover rounded-xl shadow-lg border-4 border-pink-500"
+        />
+      </motion.div>
+
+      {/* Instructor Details */}
+      <motion.div
+        className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-5 p-8 bg-gray-50 rounded-xl shadow-lg border-l-4 border-pink-400"
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <h3 className="text-4xl font-bold text-gray-900">
+          {instructors[currentIndex].name}
+        </h3>
+        <p className="text-lg text-pink-600 font-medium">
+          {instructors[currentIndex].expertise}
+        </p>
+        <p className="text-gray-700 leading-relaxed">{instructors[currentIndex].description}</p>
+        <p className="text-gray-800">
+          <span className="font-semibold text-pink-700">Qualifications:</span> {instructors[currentIndex].qualifications}
+        </p>
+        <p className="text-gray-800">
+          <span className="font-semibold text-pink-700">Experience:</span> {instructors[currentIndex].experience} years
+        </p>
+        <p className="text-gray-800">
+          <span className="font-semibold text-pink-700">Fields:</span> {instructors[currentIndex].fields.join(", ")}
+        </p>
+        <p className="text-gray-600 italic">{instructors[currentIndex].bio}</p>
+      </motion.div>
+    </div>
+  </section>
   );
 };
 

@@ -50,11 +50,11 @@ function CourseCard({ course }) {
 <motion.div
   whileHover={{ scale: 1.02, translateY: -5 }}
   whileTap={{ scale: 0.98 }}
-  className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transform transition-all duration-300 relative"
+  className="bg-transparent rounded-lg shadow-md p-6   hover:shadow-xl transform transition-all duration-300 relative"
 >
   {/* Top Badge */}
   {course.popular && (
-    <div className="absolute top-3 left-3 bg-[#4660EC] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+    <div className="absolute top-3 left-3 bg-[#AA336A] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
       Popular
     </div>
   )}
@@ -68,20 +68,26 @@ function CourseCard({ course }) {
 
   {/* Course Details */}
   <div>
-    <h3 className="font-bold text-lg mb-2 text-[#4660EC] tracking-tight truncate">
+    <h3 className="font-bold text-lg mb-2 text-[#AA336A] tracking-tight truncate">
       {course.title}
     </h3>
-    <p className="text-sm text-gray-600 mb-2">
+    <p className="text-sm text-white-800 mb-2">
       <span className="font-medium">Instructor:</span> {course.createdBy}
     </p>
-    <p className="text-sm text-gray-600 mb-2">
+    <p className="text-sm text-white-600 mb-2">
       <span className="font-medium">Duration:</span> {course.duration} weeks
     </p>
-    <p className="text-lg font-semibold mb-4 text-gray-800">
+    <p className="text-lg font-semibold mb-4 text-pink-800">
       {course.price === 0 ? (
         <span className="text-green-600">Free</span>
       ) : (
-        `Price: ₹${course.price}`
+        <>
+        <p className="text-sm text-white-600 mb-2">
+      <span className="font-medium  text-white ">Price:</span> <span className='line-through'> {course.price}</span>
+    </p>
+         <span className="text-green-400">Free</span>
+        </>
+
       )}
     </p>
 
@@ -92,14 +98,14 @@ function CourseCard({ course }) {
           user.subscription.includes(course._id) ? (
             <button
               onClick={() => navigate(`/course/study/${course._id}`)}
-              className="w-full bg-[#4660EC] hover:bg-[#324db0] text-white font-medium py-2 px-4 rounded-lg transition-all"
+              className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
             >
               Study Now
             </button>
           ) : (
             <button
               onClick={() => navigate(`/course/${course._id}`)}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-all"
+              className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
             >
               Buy Now
             </button>
@@ -107,7 +113,7 @@ function CourseCard({ course }) {
         ) : (
           <button
             onClick={() => navigate(`/course/study/${course._id}`)}
-            className="w-full bg-[#4660EC] hover:bg-[#324db0] text-white font-medium py-2 px-4 rounded-lg transition-all"
+            className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
           >
             Study Now
           </button>
@@ -116,7 +122,7 @@ function CourseCard({ course }) {
     ) : (
       <button
         onClick={() => navigate("/login")}
-        className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-all"
+        className="w-full bg-[#e68db6] hover:bg-[#bc457c] text-white font-medium py-2 px-4 rounded-lg transition-all"
       >
         Buy Now
       </button>

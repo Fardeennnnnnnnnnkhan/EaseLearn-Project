@@ -21,7 +21,7 @@ const features = [
 
 const Features = () => {
   return (
-<section className="w-full p-8 bg-gray-100">
+<section className="w-full p-8 ">
   <div className="text-center mb-8">
     <h2 className="text-3xl font-bold text-black">Key Features</h2>
     <p className="text-gray-600 mt-2">Unlock the full potential of learning with EaseLearn</p>

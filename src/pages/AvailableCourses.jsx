@@ -41,7 +41,7 @@ function AvailableCourses() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="text-3xl font-bold mb-8 text-[#4660EC] tracking-wide"
+      className="text-3xl font-bold mb-8 text-[#AA336A] tracking-wide"
     >
       Top Courses
     </motion.h1>
@@ -49,7 +49,7 @@ function AvailableCourses() {
       {courses.length > 0 ? (
         courses.map((course) => <CourseCard key={course._id} course={course} />)
       ) : (
-        <p className="text-lg text-gray-500">No courses available at the moment.</p>
+        <p className="text-lg text-white-500">No courses available at the moment.</p>
       )}
     </div>
   </div>
