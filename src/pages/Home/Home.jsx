@@ -13,8 +13,9 @@ function Home() {
   ];
 
   return (
-    <div className="w-full min-h-screen text-white flex flex-col items-center">
-      <div className="relative w-full min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
+    <div className="w-full min-h-screen text-white flex flex-col items-center ">
+<div className="relative w-full min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 z-10">
+
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/40 to-black blur-2xl"></div>
 

@@ -116,120 +116,121 @@ const deleteHandler = async  (id)=>{
 };
 
   return (
-    <div className="bg-white min-h-screen  py-28">
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="lecture-page flex flex-col md:flex-row gap-4 p-4">
-          <div className="left md:w-2/3 w-full p-4 bg-white shadow-md rounded-lg">
-            {lecLoading ? (
-              <Loading />
-            ) : lecture.video ? (
-              <div className="w-full">
-                <video
-                  width={"100%"}
-                  controls
-                  controlsList="nodownload noremoteplayback"
-                  disabledPictureInPicture
-                  disableRemotePlayback
-                  autoPlay
-                  src={`${server}/${lecture.video}`}
-                  className="rounded-md shadow-lg"
-                ></video>
-                <h1 className="text-2xl font-bold mt-4">{lecture.title}</h1>
-                <p className="text-gray-900 mt-2">{lecture.description}</p>
-              </div>
-            ) : (
-              <h1>Please Select a Lecture</h1>
-            )}
-          </div>
-
-          <div className="right md:w-1/3 w-full p-4 bg-gray-50 shadow-md rounded-lg">
-            {user && user.role === "admin" && (
-              <button
-                onClick={() => setShow(!show)}
-                className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mb-4 transition-all"
-              >
-                Add Lecture
-              </button>
-            )}
-            {show && (
-              <div className="lecture-form p-4 bg-white rounded shadow-md">
-                <button onClick={()=> setShow(!show)} className="text-lg font-semibold mb-4">{  show ? "Close":"Add Lecture"}</button>
-                <form onSubmit={submitHandler} className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium">Title</label>
-                    <input
-                    value={title}
-                    onChange={(e)=> setTitle(e.target.value)}
-                      type="text"
-                      className="text-black mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium">Description</label>
-                    <input
-                    value={description}
-                    onChange={(e)=> setDescription(e.target.value)}
-                      type="text"
-                      className= "text-black mt-1 p-2 block  w-full rounded-md border-gray-300 shadow-sm"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium">Choose Video</label>
-                    <input
-                    onChange={changeVideoHandler}
-                      type="file"
-                      className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm"
-                      required
-                    />
-
-                    {
-                      videoPreview && <video src={videoPreview}  width={300} controls />
-                    }
-                  </div>
-                  <button
-                  disabled ={btnLoading}
-                    type="submit"
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-all"
-                  >
-                    { btnLoading ? "Please Wait..." : "Add" }
-                  </button>
-                </form>
-              </div>
-            )}
-
-            <div className="mt-6">
-              {lectures && lectures.length > 0 ? (
-                lectures.map((e, i) => (
-                  <React.Fragment key={i}>
-                    <div
-                      onClick={() => fetchLecture(e._id)}
-                      className={`lecture-number p-3 my-2 cursor-pointer rounded-md ${
-                        lecture._id === e._id
-                          ? "bg-blue-100 border-l-4 border-blue-600"
-                          : "bg-white hover:bg-gray-200"
-                      } transition-all shadow`}
-                    >
-                      {i + 1}. {e.title}
-                    </div>
-                    {user && user.role === "admin" && (
-                      <button onClick={()=> deleteHandler(e._id)} className="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded mt-2 transition-all">
-                        Delete {e.title}
-                      </button>
-                    )}
-                  </React.Fragment>
-                ))
-              ) : (
-                <p className="text-gray-500">No lectures yet</p>
-              )}
+    <div className="bg-black bg-gradient-to-b from-teal-900/40 to-black min-h-screen py-20">
+    {loading ? (
+      <Loading />
+    ) : (
+      <div className="lecture-page flex flex-col md:flex-row gap-4 p-4">
+        <div className="left md:w-2/3 w-full p-4 bg-[#171717] shadow-md rounded-lg text-white">
+          {lecLoading ? (
+            <Loading />
+          ) : lecture.video ? (
+            <div className="w-full">
+              <video
+                width={"100%"}
+                controls
+                controlsList="nodownload noremoteplayback"
+                disabledPictureInPicture
+                disableRemotePlayback
+                autoPlay
+                src={`${server}/${lecture.video}`}
+                className="rounded-md shadow-lg"
+              ></video>
+              <h1 className="text-2xl font-bold mt-4 text-white">{lecture.title}</h1>
+              <p className="text-gray-300 mt-2">{lecture.description}</p>
             </div>
+          ) : (
+            <h1 className="text-white">Please Select a Lecture</h1>
+          )}
+        </div>
+
+        <div className="right md:w-1/3 w-full p-4 bg-[#171717] shadow-md rounded-lg text-white">
+          {user && user.role === "admin" && (
+            <button
+              onClick={() => setShow(!show)}
+              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mb-4 transition-all"
+            >
+              Add Lecture
+            </button>
+          )}
+          {show && (
+            <div className="lecture-form p-4 bg-[#171717] rounded shadow-md">
+              <button onClick={()=> setShow(!show)} className="text-lg font-semibold mb-4 text-white">{  show ? "Close":"Add Lecture"}</button>
+              <form onSubmit={submitHandler} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-white">Title</label>
+                  <input
+                  value={title}
+                  onChange={(e)=> setTitle(e.target.value)}
+                    type="text"
+                    className="text-black mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-white">Description</label>
+                  <input
+                  value={description}
+                  onChange={(e)=> setDescription(e.target.value)}
+                    type="text"
+                    className= "text-black mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-white">Choose Video</label>
+                  <input
+                  onChange={changeVideoHandler}
+                    type="file"
+                    className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm"
+                    required
+                  />
+
+                  {
+                    videoPreview && <video src={videoPreview}  width={300} controls />
+                  }
+                </div>
+                <button
+                disabled ={btnLoading}
+                  type="submit"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-all"
+                >
+                  { btnLoading ? "Please Wait..." : "Add" }
+                </button>
+              </form>
+            </div>
+          )}
+
+          <div className="mt-6">
+            {lectures && lectures.length > 0 ? (
+              lectures.map((e, i) => (
+                <React.Fragment key={i}>
+                  <div
+                    onClick={() => fetchLecture(e._id)}
+                    className={`lecture-number p-3 my-2 cursor-pointer rounded-md ${
+                      lecture._id === e._id
+                        ? "bg-[#171717] border-l-4 border-blue-400"
+                        : "bg-[#171717] hover:bg-[#252525] shadow-transparent"
+                    } transition-all shadow`}
+                  >
+                    {i + 1}. {e.title}
+                  </div>
+                  {user && user.role === "admin" && (
+                    <button onClick={()=> deleteHandler(e._id)} className="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded mt-2 transition-all">
+                      Delete {e.title}
+                    </button>
+                  )}
+                </React.Fragment>
+              ))
+            ) : (
+              <p className="text-gray-400">No lectures yet</p>
+            )}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
+
   );
 }
 
